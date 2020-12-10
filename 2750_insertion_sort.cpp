@@ -19,7 +19,7 @@ void InsertionSort(int *arr, int length) {
 					break;
 				}
 			}
-		}
+		}		
 	}
 }
 
@@ -36,6 +36,6 @@ int main() {
 
 	for (int i = 0; i < N; i++)
 		cout << arr[i] << endl;
-
+	
 	return 0;
 }
