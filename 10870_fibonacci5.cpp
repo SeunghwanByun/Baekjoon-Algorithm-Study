@@ -2,26 +2,23 @@
 
 using namespace std;
 
-int main() {	
-	int N;
-	
-	cin >> N;
-	
-	int f0 = 0;
-	int f1 = 1;
-	int fibonacci = 0;
-	
+int Recursive_Fibonacci(int N) {
 	if (N == 0)
-		fibonacci = 0;
-	else if (N == 1)
-		fibonacci = 1;
-	else {
-		for (int i = 2; i <= N; i++) {
-			fibonacci = f0 + f1;
-			f0 = f1;
-			f1 = fibonacci;
-		}
-	}
+		return 0;
+	if (N == 1)
+		return 1;
+	if (N > 1)
+		return Recursive_Fibonacci(N - 1) + Recursive_Fibonacci(N - 2);
+}
+
+int main() {
+	int N;
+
+	cin >> N;
+
+	int fibonacci = 0;
+
+	fibonacci = Recursive_Fibonacci(N);
 
 	cout << fibonacci;
 
