@@ -1,38 +1,30 @@
 #include <iostream>
+#include <cmath>
+#include <cstdio>
 
 using namespace std;
 
 int main(){
     int T;
+    scanf("%d", &T);
 
-    cin >> T;
+    for(int i = 0; i < T; ++i){
+        long long x, y;
+        cin >> x >> y;
 
-    for(int i = 0; i < T; i++){
-        int X, Y;
-        cin >> X >> Y;
-        
-        int length = Y - X - 1;
-        int initial = 1;
-        int count = 1;
-        while(true){
-            if(initial == length)
-                break;
-            else if(initial > length){
-                initial -= (initial + 1);
-                initial += initial;
-                if(initial != length){
-                    initial -= initial;
-                    initial += (initial - 1);
-                }                    
-                count--;
-            }
-            else{
-                initial += (initial + 1);
-            }
-            count++;
-        }
+        long long move, max = 0;
+        while(max * max <= y - x)
+            max++;
+        max--;
 
-        cout << count + 1;
+        move = 2 * max - 1;
+        long long rest_dist = y - x - max * max;
+
+        rest_dist = (long long)ceil((double)rest_dist / (double)max);
+
+        move += rest_dist;
+
+        printf("%lld\n", move);        
     }
 
     return 0;
