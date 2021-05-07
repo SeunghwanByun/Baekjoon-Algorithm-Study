@@ -17,8 +17,8 @@ int main() {
 		if (temp == 0) {
 			if (q.empty()) printf("0\n");
 			else {
-				int max = q.top(); q.pop();
-				printf("%d\n", max);
+				int min = q.top(); q.pop();
+				printf("%d\n", min);
 			}
 		}
 		else {
